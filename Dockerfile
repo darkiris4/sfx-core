@@ -21,6 +21,8 @@ RUN cd /dist/core && \
 
 FROM $BUILD_IMAGE
 
+RUN apk add --no-cache ffmpeg
+
 COPY --from=builder /dist/core/core /core/bin/core
 COPY --from=builder /dist/core/import /core/bin/import
 COPY --from=builder /dist/core/ffmigrate /core/bin/ffmigrate
